@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gravity Shapes</title>
+    <link rel="stylesheet" href = "styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col" id="total">
+                <div class="heading">
+                    <h1>Total shapes:</h1>
+                </div>
+                <div id="totalShapes">
+                    <h1>10</h1>
+                </div>
+            </div>
+            <div class="col" id="covered">
+                <div class="heading">
+                    <h1>Covered area:</h1>
+                </div>
+                <div id="amountPixels">
+                    <h1 id="numberOfPixels">12054</h1>
+                    <h1 id="px">px</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid" id="middle">
+        <canvas id="myCanvas" width="70%" height="410">
+
+        </canvas>
+    </section>
+    <section class="container-fluid" id="lower">
+        <div class="row">
+            <div class="col" id="shapesPerSec">
+                <div class="heading">
+                    <h1>Shapes per second: </h1>
+                </div>
+                <div id="amountShapes">
+                    <h1>10</h1>
+                </div>
+            </div>
+            <div class="col" id="gravity">
+                <div class="heading">
+                    <h1>Gravity/Speed:</h1>
+                </div>
+                <div id="numberOfGravity">
+                    <h1>4</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>

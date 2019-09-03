@@ -1,0 +1,48 @@
+
+#total{
+  max-width: 50%;
+  padding: 15px;
+  background-color: cadetblue;
+  display: flex;
+}
+.heading{
+  width: 60%;
+  text-align: right;
+}
+#covered{
+   max-width: 50%;
+   padding: 15px;
+   background-color: aliceblue;
+   display: flex;
+ }
+#amountPixels{
+  width: 50%;
+  padding-left:10px;
+  display: flex;
+}
+#numberOfPixels{
+  width: auto;
+}
+#px{
+  width: 10%;
+}
+#middle{
+  background-color: blanchedalmond;
+  width: 70%;
+  height: 600px;
+}
+#shapesPerSec{
+  max-width: 50%;
+  padding: 15px;
+  background-color: cadetblue;
+  display: flex;
+
+}
+#gravity{
+  max-width: 50%;
+  padding: 15px;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+}
