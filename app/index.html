@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Gravity Shapes</title>
     <link rel="stylesheet" href = "styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
 </head>
+<script src="pixi/pixi.min.js"></script>
 <body>
     <section>
         <div class="infobar-part">
@@ -16,31 +18,38 @@
             <div id="shapes_area" class="infobar-part-content">102244643</div>
         </div>
     </section>
-    <section class="container-fluid" id="middle">
-        <canvas id="myCanvas" width="70%" height="410">
-
-        </canvas>
+    <section>
+        <canvas id="game"></canvas>
     </section>
-    <section class="container-fluid" id="lower">
-        <div class="row">
-            <div class="col" id="shapesPerSec">
-                <div class="heading">
-                    <h1>Shapes per second: </h1>
-                </div>
-                <div id="amountShapes">
-                    <h1>10</h1>
+    <section>
+        <div class="ui-container">
+            <div class="ui-container-part">Shapes per second</div>
+            <div class="ui-container-part">
+                <div class="ui-container-part-buttons">
+                    <div id="shapes-per-sec-decrement"
+                         class="ui-container-button button-left">&#9664;</div>
+                    <div id="shapes-per-sec-output"
+                         class="output-field">5</div>
+                    <div id="shapes-per-sec-increment"
+                         class="ui-container-button button-right">&#9654;</div>
                 </div>
             </div>
-            <div class="col" id="gravity">
-                <div class="heading">
-                    <h1>Gravity/Speed:</h1>
-                </div>
-                <div id="numberOfGravity">
-                    <h1>4</h1>
+        </div>
+        <div class="ui-container">
+            <div class="ui-container-part">Gravity</div>
+            <div class="ui-container-part">
+                <div class="ui-container-part-buttons">
+                    <div id="gravity-decrement"
+                         class="ui-container-button button-left">&#9664;</div>
+                    <div id="gravity-output"
+                         class="output-field">5</div>
+                    <div id="gravity-increment"
+                         class="ui-container-button button-right">&#9654;</div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <script src="main.js"></script>
 </body>

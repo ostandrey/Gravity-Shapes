@@ -5,6 +5,8 @@ section {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  padding: 40px 0;
+  font-family: sans-serif;
 }
 .infobar-part {
   display: flex;
@@ -16,54 +18,104 @@ section {
   font-size: 3vmin;
   &:first-child {
     text-align: right;
+
+  }
+  &:last-child{
+
   }
 }
-
-#total{
-  max-width: 50%;
-  padding: 15px;
-  background-color: cadetblue;
+.inputConfig{
+  font-family: sans-serif;
+  font-size: 3vmin;
+  padding: 3px;
+  border: 1px solid gray;
+}
+.quantity{
   display: flex;
 }
-.heading{
-  width: 60%;
-  text-align: right;
-  color: saddlebrown;
+.arrow{
+  padding: 7px;
+  border: 1px solid gray;
 }
-#covered{
-   max-width: 50%;
-   padding: 15px;
-   background-color: aliceblue;
-   display: flex;
- }
-#amountPixels{
+.leftArrow{
+  margin-right: -1px;
+  border-radius: 5px 5px 0 0;
+}
+.rightArrow{
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.ui-container {
+  display: flex;
   width: 50%;
-  padding-left:10px;
-  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-#numberOfPixels{
-  width: auto;
-}
-#px{
-  width: 10%;
-}
-#middle{
-  background-color: blanchedalmond;
-  width: 70%;
-  height: 600px;
-}
-#shapesPerSec{
-  max-width: 50%;
-  padding: 15px;
-  background-color: cadetblue;
-  display: flex;
 
-}
-#gravity{
-  max-width: 50%;
-  padding: 15px;
-  background-color: aliceblue;
+.ui-container-part-buttons {
   display: flex;
-  flex-direction: row;
-  align-items: end;
+  width: 16vmin;
+  justify-content: space-between;
+}
+
+.ui-container-button {
+  width: 4vmin;
+  height: 5vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+}
+
+.output-field {
+  height: 5vmin;
+  width: 6vmin;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 1vmin;
+  box-shadow: 0 0 3px rgba(20, 20,250, 0.6);
+  user-select: none;
+  font-size: 3vmin;
+}
+
+.ui-container-button {
+  user-select: none;
+  cursor: pointer;
+  box-shadow: 0 0 3px rgba(0,0,0, 0.7);
+  font-size: 2vmin;
+}
+
+.ui-container-button:hover {
+  box-shadow: 0 0 5px rgba(0,0,0, 0.7);
+}
+
+.ui-container-button:active {
+  box-shadow: 0 0 5px rgba(0,0,0, 0.7);
+  transform: scale(0.95);
+  font-size: 1.95vmin;
+}
+
+.button-right {
+  border-radius: 0 1vmin 1vmin 0;
+}
+
+.button-left {
+  border-radius: 1vmin 0 0 1vmin;
+}
+.ui-container-part{
+  font-size: 3vmin;
+  margin: 1vmin;
+}
+
+#game {
+  width: 90vmin;
+  height: 60vmin;
+  background-color: lightblue;
 }
