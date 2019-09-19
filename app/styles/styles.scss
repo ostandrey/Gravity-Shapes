@@ -20,33 +20,12 @@ section {
     text-align: right;
 
   }
-  &:last-child{
-
-  }
 }
 .inputConfig{
   font-family: sans-serif;
   font-size: 3vmin;
   padding: 3px;
   border: 1px solid gray;
-}
-.quantity{
-  display: flex;
-}
-.arrow{
-  padding: 7px;
-  border: 1px solid gray;
-}
-.leftArrow{
-  margin-right: -1px;
-  border-radius: 5px 5px 0 0;
-}
-.rightArrow{
-  margin-left: -1px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 
 .ui-container {
@@ -69,7 +48,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid;
+  border: 2px solid #008CBA;
 }
 
 .output-field {
@@ -78,11 +57,14 @@ section {
   align-items: center;
   display: flex;
   justify-content: center;
-  border: 1px solid black;
+  border: 2px solid #008CBA;
   border-radius: 1vmin;
   box-shadow: 0 0 3px rgba(20, 20,250, 0.6);
   user-select: none;
   font-size: 3vmin;
+  text-align: center;
+  margin: 0 7px;
+  cursor: none;
 }
 
 .ui-container-button {
@@ -94,6 +76,9 @@ section {
 
 .ui-container-button:hover {
   box-shadow: 0 0 5px rgba(0,0,0, 0.7);
+  background-color: #008CBA;
+  color: white;
+  transition-duration: 0.4s;
 }
 
 .ui-container-button:active {
@@ -109,6 +94,7 @@ section {
 .button-left {
   border-radius: 1vmin 0 0 1vmin;
 }
+
 .ui-container-part{
   font-size: 3vmin;
   margin: 1vmin;

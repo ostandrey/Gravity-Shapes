@@ -30,3 +30,39 @@ background.on("pointerdown", (event) => {
     background.addChild(shape.g);
     console.log(event);
 });
+
+let shapesOutput = document.getElementById('shapes-per-sec-output');
+let shapesDecrement = document.getElementById('shapes-per-sec-decrement');
+let shapesIncrement = document.getElementById('shapes-per-sec-increment');
+
+shapesDecrement.addEventListener('click',function () {
+    if(parseInt(shapesOutput.value)>1) {
+        shapesOutput.value = parseInt(shapesOutput.value) - 1;
+    }
+    else if (parseInt(shapesOutput.value)==1){
+        shapesDecrement.disabled = true;
+    }
+
+});
+
+shapesIncrement.addEventListener('click', function () {
+    if (parseInt(shapesOutput.value)<10)
+        shapesOutput.value = parseInt(shapesOutput.value)+1;
+});
+let gravityOutput = document.getElementById('gravity-output');
+let gravityDecrement = document.getElementById('gravity-decrement');
+let gravityIncrement = document.getElementById('gravity-increment');
+gravityOutput.addEventListener('click',function () {
+    if(parseInt(gravityOutput.value)>1) {
+        gravityOutput.value = parseInt(gravityOutput.value) - 1;
+    }
+    else if (parseInt(gravityOutput.value)==1){
+        gravityDecrement.disabled = true;
+    }
+
+});
+
+gravityIncrement.addEventListener('click', function () {
+    if (parseInt(gravityOutput.value)<10)
+        gravityOutput.value = parseInt(gravityOutput.value)+1;
+});
