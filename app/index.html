@@ -7,49 +7,61 @@
     <link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section>
-        <div class="infobar-part">
-            <div class="infobar-part-content">Total Shapes: </div>
-            <div id="shapes_amount" class="infobar-part-content">17</div>
-        </div>
-        <div class="infobar-part">
-            <div class="infobar-part-content">Covered area: </div>
-            <div id="shapes_area" class="infobar-part-content">102244643</div>
-        </div>
-    </section>
-    <section>
-        <div id="game"></div>
-    </section>
-    <section>
-        <div class="ui-container">
-            <div class="ui-container-part">Shapes per second</div>
-            <div class="ui-container-part">
-                <div class="ui-container-part-buttons">
-                    <div id="shapes-per-sec-decrement"
-                         class="ui-container-button button-left" >&#9664;</div>
-                    <input id="shapes-per-sec-output"
-                         class="output-field" value="1">
-                    <div id="shapes-per-sec-increment"
-                         class="ui-container-button button-right">&#9654;</div>
+    <div class="area">
+        <section>
+            <div class="infobar-part">
+                <div class="infobar-part-content">Total Shapes: </div>
+                <div id="shapes_amount" class="infobar-part-content">17</div>
+            </div>
+            <div class="infobar-part">
+                <div class="infobar-part-content">Covered area: </div>
+                <div id="shapes_area" class="infobar-part-content">102244643</div>
+            </div>
+        </section>
+        <section>
+            <div id="game"></div>
+        </section>
+        <section>
+            <div class="ui-container">
+                <div class="ui-container-part part-content">Shapes per second</div>
+                <div class="ui-container-part">
+                    <div class="ui-container-part-buttons">
+                        <div id="shapes-per-sec-decrement"
+                             class="ui-container-button button-left" >&#9664;</div>
+                        <input id="shapes-per-sec-output"
+                             class="output-field" value="1">
+                        <div id="shapes-per-sec-increment"
+                             class="ui-container-button button-right">&#9654;</div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="ui-container">
-            <div class="ui-container-part">Gravity</div>
-            <div class="ui-container-part">
-                <div class="ui-container-part-buttons">
-                    <div id="gravity-decrement"
-                         class="ui-container-button button-left">&#9664;</div>
-                    <input id="gravity-output"
-                           class="output-field" value="1">
-                    <div id="gravity-increment"
-                         class="ui-container-button button-right">&#9654;</div>
+            <div class="ui-container">
+                <div class="ui-container-part ui-container-part-content">Gravity</div>
+                <div class="ui-container-part">
+                    <div class="ui-container-part-buttons">
+                        <div id="gravity-decrement"
+                             class="ui-container-button button-left">&#9664;</div>
+                        <input id="gravity-output"
+                               class="output-field" value="1">
+                        <div id="gravity-increment"
+                             class="ui-container-button button-right">&#9654;</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-
+        </section>
+    <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
