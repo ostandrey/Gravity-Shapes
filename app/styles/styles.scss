@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
-
+/* NOTE: good decision to use SCSS. See specs to use all features of this preprocessor
+   TODO: define variables if necessary;
+         read about vendors prefixes as -webkit-... and why we need them;
+         define abstract class for 'circles' and extend it to modify
+         wrap in general class child elements with symbol '&':
+         .infobar-part {
+            ...
+            $-content {
+              ...
+            }
+          };
+          move 'circles' styles into another .scss file and import them by using @import;
+          try to use only screen area without overflow and scroll
+ */
 body {
   margin: 0;
   font-family: 'Exo', sans-serif;
@@ -15,8 +28,6 @@ section {
   align-items: center;
   padding: 30px 0;
   font-family: sans-serif;
-
-
 }
 .infobar-part {
   display: flex;

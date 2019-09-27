@@ -5,6 +5,11 @@ const browserify = require('browserify');
 const sourcemaps = require('gulp-sourcemaps');
 const fs = require('fs');
 
+// TODO: delete unused tasks;
+//       add sourcemaps for scss;
+//       fix problem with build when default task starts;
+//       modify dependencies by type (dev)Dependencies in package.json
+
 task('sass', function(){
     gulp.src('sources-file')
         .pipe(sass())

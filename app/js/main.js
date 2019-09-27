@@ -91,11 +91,17 @@ arc.on("pointerdown", () => {
 });
 app.stage.addChild(arc);
 
+// TODO: move UI logic into another file
 let shapesOutput = document.getElementById('shapes-per-sec-output');
 let shapesDecrement = document.getElementById('shapes-per-sec-decrement');
 let shapesIncrement = document.getElementById('shapes-per-sec-increment');
 
 shapesDecrement.addEventListener('click',function () {
+    //TODO: define variables of range min/max;
+    //      declare variable to use parseInt(shapesOutput.value);
+    //      create one function that has argument of increment/decrement
+    //      and returns value of output field for both shapes and gravity;
+    //      add this func as listener to all buttons
     if(parseInt(shapesOutput.value)>1) {
         shapesOutput.value = parseInt(shapesOutput.value) - 1;
     }
@@ -104,7 +110,6 @@ shapesDecrement.addEventListener('click',function () {
     }
 
 });
-
 shapesIncrement.addEventListener('click', function () {
     if (parseInt(shapesOutput.value)<10)
         shapesOutput.value = parseInt(shapesOutput.value)+1;
@@ -112,17 +117,18 @@ shapesIncrement.addEventListener('click', function () {
 let gravityOutput = document.getElementById('gravity-output');
 let gravityDecrement = document.getElementById('gravity-decrement');
 let gravityIncrement = document.getElementById('gravity-increment');
-gravityOutput.addEventListener('click',function () {
+gravityDecrement.addEventListener('click',function () {
     if(parseInt(gravityOutput.value)>1) {
         gravityOutput.value = parseInt(gravityOutput.value) - 1;
     }
-    else if (parseInt(gravityOutput.value)==1){
+    else {
         gravityDecrement.disabled = true;
     }
 
 });
 
 gravityIncrement.addEventListener('click', function () {
-    if (parseInt(gravityOutput.value)<10)
+    if (parseInt(gravityOutput.value)<10) {
         gravityOutput.value = parseInt(gravityOutput.value)+1;
+    }
 });
