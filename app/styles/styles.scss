@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+@import "background";
 /* NOTE: good decision to use SCSS. See specs to use all features of this preprocessor
-   TODO: define variables if necessary;
+   TODO: define variables if necessary;+++
          read about vendors prefixes as -webkit-... and why we need them;
          define abstract class for 'circles' and extend it to modify
          wrap in general class child elements with symbol '&':
@@ -10,243 +11,140 @@
               ...
             }
           };
-          move 'circles' styles into another .scss file and import them by using @import;
+          move 'circles' styles into another .scss file and import them by using @import;+++
           try to use only screen area without overflow and scroll
  */
+$display: flex;
+$font-family: 'Exo', sans-serif;
+$font-size: 3vmin;
+$background: #4e54c8;
+$align-items: centre;
+$justify-content: centre;
+
 body {
   margin: 0;
-  font-family: 'Exo', sans-serif;
+  font-family: $font-family;
 }
 
 .area{
-  background: #4e54c8;
-  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+  background: $background;
+  background: -webkit-linear-gradient(to left, #8f94fb, $background);
 }
 section {
-  display: flex;
+  display: $display;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: $align-items;
   padding: 30px 0;
-  font-family: sans-serif;
-}
-.infobar-part {
-  display: flex;
-  width: 50%;
-}
-.infobar-part-content {
-  width: 50%;
-  font-family: 'Exo', sans-serif;
-  font-size: 3vmin;
-  color: #fff;
-  pointer-events: none;
-  &:first-child {
-    text-align: right;
+  font-family: $font-family;
 
-  }
-}
-.inputConfig{
-  font-family: sans-serif;
-  font-size: 3vmin;
-  padding: 3px;
-  border: 1px solid gray;
-}
-
-.ui-container {
-  display: flex;
-  width: 50%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.ui-container-part-buttons {
-  display: flex;
-  width: 16vmin;
-  justify-content: space-between;
-}
-
-.ui-container-button {
-  width: 4vmin;
-  height: 5vmin;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #008CBA;
-}
-
-.output-field {
-  height: 5vmin;
-  width: 6vmin;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  border: 2px solid #008CBA;
-  border-radius: 1vmin;
-  box-shadow: 0 0 3px rgba(20, 20,250, 0.6);
-  user-select: none;
-  font-size: 3vmin;
-  text-align: center;
-  margin: 0 7px;
-  pointer-events: none;
-}
-
-.ui-container-button {
-  user-select: none;
-  cursor: pointer;
-  box-shadow: 0 0 3px rgba(0,0,0, 0.7);
-  font-size: 2vmin;
-}
-
-.ui-container-button:hover {
-  box-shadow: 0 0 5px rgba(0,0,0, 0.7);
-  background-color: #008CBA;
-  color: white;
-  transition-duration: 0.4s;
-}
-
-.ui-container-button:active {
-  box-shadow: 0 0 5px rgba(0,0,0, 0.7);
-  transform: scale(0.95);
-  font-size: 1.95vmin;
-}
-
-.button-right {
-  border-radius: 0 1vmin 1vmin 0;
-}
-
-.button-left {
-  border-radius: 1vmin 0 0 1vmin;
-}
-
-.ui-container-part{
-  font-size: 3vmin;
-  margin: 1vmin;
-  font-family: 'Exo', sans-serif;
-  color: #fff;
-}
-.part-content{
-   pointer-events: none;
-}
-
-#game {
-  width: 90vmin;
-  height: 60vmin;
-  background-color: lightblue;
-}
-
-
-.circles{
-  position: unset;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.circles li{
-  position: absolute;
-  list-style: none;
-  width: 0px;
-  height: 0px;
-  background: rgba(255, 255, 255, 0.2);
-  animation: animate 25s linear infinite;
-  overflow: hidden;
-  bottom: -3vmin;
-}
-
-.circles li:nth-child(1){
-  left: 25%;
-  width: 80px;
-  height: 80px;
-  animation-delay: 0s;
-}
-
-
-.circles li:nth-child(2){
-  left: 10%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 2s;
-  animation-duration: 12s;
-}
-
-.circles li:nth-child(3){
-  left: 70%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 4s;
-}
-
-.circles li:nth-child(4){
-  left: 40%;
-  width: 60px;
-  height: 60px;
-  animation-delay: 0s;
-  animation-duration: 18s;
-}
-
-.circles li:nth-child(5){
-  left: 65%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 0s;
-}
-
-.circles li:nth-child(6){
-  left: 75%;
-  width: 110px;
-  height: 110px;
-  animation-delay: 3s;
-}
-
-.circles li:nth-child(7){
-  left: 35%;
-  width: 150px;
-  height: 150px;
-  animation-delay: 7s;
-}
-
-.circles li:nth-child(8){
-  left: 50%;
-  width: 25px;
-  height: 25px;
-  animation-delay: 15s;
-  animation-duration: 45s;
-}
-
-.circles li:nth-child(9){
-  left: 20%;
-  width: 15px;
-  height: 15px;
-  animation-delay: 2s;
-  animation-duration: 35s;
-}
-
-.circles li:nth-child(10){
-  left: 85%;
-  width: 150px;
-  height: 150px;
-  animation-delay: 0s;
-  animation-duration: 11s;
-}
-
-
-
-@keyframes animate {
-
-  0%{
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-    border-radius: 0;
+  .infobar-part {
+    display: $display;
+    width: 50%;
   }
 
-  100%{
-    transform: translateY(-1000px) rotate(720deg);
-    opacity: 0;
-    border-radius: 50%;
+  .infobar-part-content {
+    width: 50%;
+    font-family: $font-family;
+    font-size: $font-size;
+    color: #fff;
+    pointer-events: none;
+
+    &:first-child {
+      text-align: right;
+
+    }
   }
 
+  .inputConfig {
+    font-family: $font-family;
+    font-size: $font-size;
+    padding: 3px;
+    border: 1px solid gray;
+  }
+
+  .ui-container {
+    display: $display;
+    width: 50%;
+    flex-direction: column;
+    justify-content: $justify-content;
+    align-items: $align-items;
+  }
+
+  .ui-container-part-buttons {
+    display: $display;
+    width: 16vmin;
+    justify-content: space-between;
+  }
+
+  .ui-container-button {
+    display: $display;
+    width: 4vmin;
+    height: 5vmin;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    border: 2px solid #008CBA;
+  }
+
+  .output-field {
+    display: $display;
+    height: 5vmin;
+    width: 6vmin;
+    align-items: $align-items;
+    justify-content: $justify-content;
+    border: 2px solid #008CBA;
+    border-radius: 1vmin;
+    box-shadow: 0 0 3px rgba(20, 20, 250, 0.6);
+    user-select: none;
+    font-size: $font-size;
+    text-align: center;
+    margin: 0 7px;
+    pointer-events: none;
+  }
+
+  .ui-container-button {
+    user-select: none;
+    cursor: pointer;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+    font-size: 2vmin;
+  }
+
+  .ui-container-button:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    background-color: #008CBA;
+    color: white;
+    transition-duration: 0.4s;
+  }
+
+  .ui-container-button:active {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    transform: scale(0.95);
+    font-size: 1.95vmin;
+  }
+
+  .button-right {
+    border-radius: 0 1vmin 1vmin 0;
+  }
+
+  .button-left {
+    border-radius: 1vmin 0 0 1vmin;
+  }
+
+  .ui-container-part {
+    font-size: $font-size;
+    margin: 1vmin;
+    font-family: $font-family;
+    color: #fff;
+  }
+
+  .part-content {
+    pointer-events: none;
+  }
+
+  #game {
+    width: 90vmin;
+    height: 60vmin;
+    background-color: lightblue;
+  }
 }
+
 
