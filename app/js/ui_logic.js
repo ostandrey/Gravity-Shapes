@@ -1,53 +1,29 @@
-export {arrow};
-function arrow (){
+const SHAPES_PER_SECOND_MIN = 1;
+const SHAPES_PER_SECOND_MAX = 10;
 
-    let shapesOutput = document.getElementById('shapes-per-sec-output');
-    let shapesDecrement = document.getElementById('shapes-per-sec-decrement');
-    let shapesIncrement = document.getElementById('shapes-per-sec-increment');
+const GRAVITY_MIN = 1;
+const GRAVITY_MAX = 10;
 
-    const output = parseInt(shapesOutput.value);
-    const min = 1;
-    const max = 10;
+export class UI {
+  constructor() {
+      this.shapesOutput = document.getElementById('shapes-per-sec-output');
+      this.shapesDecrement = document.getElementById('shapes-per-sec-decrement');
+      this.shapesIncrement = document.getElementById('shapes-per-sec-increment');
+      this.gravityOutput = document.getElementById('gravity-output');
+      this.gravityDecrement = document.getElementById('gravity-decrement');
+      this.gravityIncrement = document.getElementById('gravity-increment');
+      this.addEventListeners();
+  };
 
-
-    shapesDecrement.addEventListener('click',function () {
-        //TODO: define variables of range min/max; +++
-        //      declare variable to use parseInt(shapesOutput.value); +++
-        //      create one function that has argument of increment/decrement
-        //      and returns value of output field for both shapes and gravity;
-        //      add this func as listener to all buttons
-
-
-        if (output > min) {
-            shapesOutput.value = output - min;
-        }
-        else {
-            shapesDecrement.disabled = true;
-        }
-
-    });
-    shapesIncrement.addEventListener('click', function () {
-        if (output < max)
-            shapesOutput.value = output + min;
-    });
-
-    let gravityOutput = document.getElementById('gravity-output');
-    let gravityDecrement = document.getElementById('gravity-decrement');
-    let gravityIncrement = document.getElementById('gravity-increment');
-
-    gravityDecrement.addEventListener('click',function () {
-        if(output > min) {
-            gravityOutput.value = output - min;
-        }
-        else {
-            gravityDecrement.disabled = true;
-        }
-
-    });
-
-    gravityIncrement.addEventListener('click', function () {
-        if (output < max) {
-            gravityOutput.value = output + min;
-        }
-    });
+  addEventListeners() {
+      let shapesOutput = Number(this.shapesOutput.value);
+      this.shapesDecrement.onpointerup = () => {
+          shapesOutput--;
+          if (shapesOutput < SHAPES_PER_SECOND_MIN) this.shapesOutput = SHAPES_PER_SECOND_MIN
+      };
+      this.shapesIncrement.onpointerup = () => {
+          shapesOutput++;
+          if (shapesOutput > SHAPES_PER_SECOND_MAX) this.shapesOutput = SHAPES_PER_SECOND_MAX
+      }
+  }
 }

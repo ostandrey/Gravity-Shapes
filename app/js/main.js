@@ -1,6 +1,6 @@
-import {Application, Graphics, Attribute,Point} from "pixi.js";
+import {Application, Graphics} from "pixi.js";
 import {Shape} from "./shape";
-import {arrow} from "./ui_logic";
+import {UI} from "./ui_logic";
 
 const game = document.getElementById('game');
 const app = new Application({ width: game.clientWidth, height: game.clientHeight });
@@ -91,3 +91,5 @@ arc.on("pointerdown", () => {
     arc.destroy();
 });
 app.stage.addChild(arc);
+
+let ui = new UI();
