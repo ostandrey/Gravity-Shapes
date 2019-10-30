@@ -3,6 +3,7 @@ const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 const browserify = require('browserify');
 const sourcemaps = require('gulp-sourcemaps');
+const fs = require('fs');
 
 sass.compiler = require('node-sass');
 

@@ -1,77 +1,17 @@
 import {Application, Graphics} from "pixi.js";
-import {Shape} from "./shape";
+import {Rectangle, Shape, Tetraedr, Pentangle, Circle, Ellipse} from "./shape";
 import {UI} from "./ui_logic";
+import {Controller} from "./controller";
+import {Model} from "./model";
+import {View} from "./view";
 
 const game = document.getElementById('game');
 const app = new Application({ width: game.clientWidth, height: game.clientHeight });
 game.appendChild(app.view);
 
-const background = new Graphics();
-background.beginFill(0x000000);
-background.drawRect(0, 0, app.view.width, app.view.height);
-background.endFill();
-background.interactive = true;
-
-const square = new Graphics();
-
-// Rectangle
-square.beginFill(0xDE3249);
-square.drawRect(50, 50, 100, 100);
-square.endFill();
-square.interactive = true;
-square.on("pointerdown", () => {
-    square.destroy();
-});
-
-app.stage.addChild(background);
-app.stage.addChild(square);
-
-background.on("pointerdown", (event) => {
-    const shape = new Shape();
-    background.addChild(shape.g);
-    console.log(event);
-});
-
-const triangle = new Graphics();
-let t = [100, 325, 150, 200, 200, 300];
-// Triangle
-triangle.beginFill(0xDE3249);
-triangle.drawPolygon(t);
-triangle.endFill();
-
-triangle.interactive = true;
-triangle.on("pointerdown", () => {
-    triangle.destroy();
-});
-
-app.stage.addChild(triangle);
-
-
-const pentagon = new Graphics();
-//Pentagon
-let p = [400, 150, 450, 120, 500, 150, 475, 200, 425, 200];
-pentagon.beginFill(0xDE3249);
-pentagon.drawPolygon(p);
-pentagon.endFill();
-pentagon.interactive = true;
-pentagon.on("pointerdown", () => {
-    pentagon.destroy();
-});
-app.stage.addChild(pentagon);
-
-const hexagon = new Graphics();
-//Hexagon
-let h = [405, 250, 450, 220, 495, 250, 495, 300,450,330, 405, 300];
-
-hexagon.lineStyle(0);
-hexagon.beginFill(0x3500FA, 1);
-hexagon.drawPolygon(h);
-hexagon.endFill();
-hexagon.interactive = true;
-hexagon.on("pointerdown", () => {
-    hexagon.destroy();
-});
-app.stage.addChild(hexagon);
+let model = new Model();
+let view = new View(app.stage);
+let controller = new Controller(view, model);
 
 // // ARC ////
 const arc = new Graphics();
@@ -90,6 +30,4 @@ arc.interactive = true;
 arc.on("pointerdown", () => {
     arc.destroy();
 });
-app.stage.addChild(arc);
-
-let ui = new UI();
+// app.stage.addChild(arc);
