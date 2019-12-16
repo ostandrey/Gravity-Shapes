@@ -8,6 +8,18 @@ const SHAPE_HEIGHT = 100;
 const SHAPE_WIDTH = 100;
 const RADIUS = generateCoord(SHAPE_WIDTH / 2, SHAPE_HEIGHT / 2);
 const SECOND_RADIUS = generateCoord(SHAPE_WIDTH / 2, SHAPE_WIDTH);
+const COLORS = {
+    fill: [
+        0xe61919,
+        0x884ea0,
+        0x5499c7,
+        0x17a589,
+        0x239b56,
+        0xf1c40f,
+        0xf0b27a,
+        0x2e4053
+    ]
+};
 
 export class Shape {
     constructor () {
@@ -19,13 +31,12 @@ export class Shape {
     }
 
     create () {
-        this.view.pivot = new Point(0, 0);
+        let rand = Math.round(Math.random() * (COLORS.fill.length - 1));
+        this.view.beginFill(COLORS.fill[rand]);
+        this.view.name = "shape";
+        this.view.pivot = new Point(0.5, 0.5);
         this.view.interactive = true;
         this.view.buttonMode = true;
-        this.view.on("pointerdown", () => {
-             this.view.destroy();
-        });
-
     }
 
     setPosition (x, y) {
@@ -51,12 +62,14 @@ export class Shape {
         }
         area -= vertexes[vertexes.length - 1].y * vertexes[0].x;
         this.area = Math.abs(area) / 2;
-        console.log(this.area);
     }
 
     move (delta) {
         this.view.y += delta;
     }
+
+
+
 }
 
 export class Triangle extends Shape {
@@ -67,11 +80,11 @@ export class Triangle extends Shape {
             generateCoord(0, SHAPE_WIDTH / 2), generateCoord(SHAPE_HEIGHT / 2, SHAPE_HEIGHT)
         ];
         super.create();
-        this.view.beginFill(0xDE3249);
+      //  this.view.beginFill(0xDE3249);
         this.view.drawPolygon(this.path);
         this.view.endFill();
-
-
+        this.view.pivot.x = SHAPE_WIDTH/ 2;
+        this.view.pivot.y = SHAPE_HEIGHT / 2;
     }
 }
 
@@ -84,9 +97,11 @@ export class Rectangle extends Shape {
             generateCoord(0, SHAPE_WIDTH / 2), generateCoord(SHAPE_HEIGHT / 2, SHAPE_HEIGHT)
         ];
         super.create();
-        this.view.beginFill(0xDE3249);
+        //this.view.beginFill(0xDE3249);
         this.view.drawPolygon(this.path);
         this.view.endFill();
+        this.view.pivot.x = SHAPE_WIDTH/ 2;
+        this.view.pivot.y = SHAPE_HEIGHT / 2;
     }
 }
 
@@ -101,9 +116,11 @@ export class Pentagon extends  Shape {
              generateCoord(0, SHAPE_WIDTH / 2), generateCoord(SHAPE_HEIGHT / 2, SHAPE_HEIGHT)
         ];
         super.create();
-        this.view.beginFill(0xDE3249);
+        //this.view.beginFill(0xDE3249);
         this.view.drawPolygon(this.path);
         this.view.endFill();
+        this.view.pivot.x = SHAPE_WIDTH/ 2;
+        this.view.pivot.y = SHAPE_HEIGHT / 2;
     }
 
 }
@@ -112,15 +129,13 @@ export class Circle extends Shape {
     create () {
         super.create();
         this.view.lineStyle(0);
-        this.view.beginFill(0xDE3249, 1);
-        this.view.drawCircle(100, 100, RADIUS);
+        //this.view.beginFill(0xDE3249, 1);
+        this.view.drawCircle(0, 0, RADIUS);
         this.view.endFill();
     }
 
     getArea() {
-
         this.area = Math.ceil(Math.PI * Math.pow(RADIUS,2));
-        console.log(this.area);
     }
 }
 
@@ -128,14 +143,13 @@ export class Ellipse extends Shape {
     create() {
         super.create();
         this.view.lineStyle();
-        this.view.beginFill(0xDE3249);
-        this.view.drawEllipse(150,40, RADIUS, SECOND_RADIUS);
+        //this.view.beginFill(0xDE3249);
+        this.view.drawEllipse(0,0, RADIUS, SECOND_RADIUS);
         this.view.endFill();
     }
 
     getArea() {
         this.area = Math.ceil(Math.PI * RADIUS * SECOND_RADIUS);
-        console.log(this.area);
     }
 }
 

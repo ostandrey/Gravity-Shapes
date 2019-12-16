@@ -2,9 +2,17 @@ export class Controller {
     constructor(view, model){
         this.view = view;
         this.model = model;
+        this.windowListeners();
         this.addUIListeners();
+        this.addBackgroundListeners();
+        this.addShapeListeners();
         this.generateShape();
-        // this.addBackgroundListeners();
+    }
+
+    windowListeners() {
+        window.onresize = () => {
+            this.scaleScene();
+        }
     }
 
     addUIListeners() {
@@ -15,9 +23,20 @@ export class Controller {
     }
 
     addBackgroundListeners () {
-        this.view.background.on('pointerdown', () => {
-            this.generateShape()
+        this.view.background.on('pointerdown', (event) => {
+            this.generateShape(event.data.global);
         });
+    }
+
+    addShapeListeners() {
+        this.view.appView.interactive = true;
+        this.view.appView.on("pointerdown", (event) => {
+            this.deleteShape(event.target);
+        })
+    }
+
+    scaleScene() {
+
     }
 
     onGravityIncrement() {
@@ -39,8 +58,48 @@ export class Controller {
         this.model.shapesDecrement();
         this.view.shapesOutput.value = this.model.shapesPerSec;
     }
-    generateShape () {
-        this.view.createShape();
+
+    generateShape(position) {
+        this.view.createShape(position);
+        this.updateInfo();
+    }
+
+    moveShapes() {
+        this.view.shapes.forEach((shape) => {
+            shape.move(this.model.gravity);
+        })
+    }
+
+    cleanSceneFromShapes() {
+        this.view.shapes.forEach((shape) => {
+            if (!shape) return;
+            if (shape.view.position.y > 500) {
+                this.deleteShape(shape.view);
+            }
+        })
+    }
+
+    deleteShape(target) {
+        if (target.hasOwnProperty("name") && target.name == "shape") {
+            this.view.shapes.forEach((shape) => {
+                if (shape.view.index == target.index) {
+                    shape.view.destroy();
+                    this.view.shapes.splice(this.view.shapes.indexOf(shape),1);
+                }
+            })
+        }
+        this.updateInfo()
+    }
+
+    updateInfo() {
+        this.model.shapesArea = 0;
+
+        this.view.shapes.forEach((shape) => {
+            this.model.shapesArea += shape.area;
+        });
+        this.view.shapesArea.innerHTML = this.model.shapesArea;
+
+        this.view.shapesNumber.innerHTML = this.view.shapes.length;
     }
 
 }
